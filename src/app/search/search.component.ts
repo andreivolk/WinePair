@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterModule, Routes, ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  public searchTerm: string;
+
+  wineSearch() {
+    this.router.navigate(['/results', this.searchTerm]);
+  }
 
   ngOnInit() {
   }
+
 
 }

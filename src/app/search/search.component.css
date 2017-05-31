@@ -1,0 +1,19 @@
+.mainSearch {
+    margin-top: 50px;
+}
+md-input-container {
+    width: 90%;
+    font-size: 25px;
+}
+.material-icons {
+    font-size: 40px;
+    color: #673ab7;
+}
+i {
+    vertical-align: middle !important;
+}
+@media screen and (max-width: 960px) {
+    md-input-container {
+    width: 80%;
+}
+}
