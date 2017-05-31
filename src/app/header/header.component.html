@@ -1,3 +1,19 @@
 <md-toolbar color="primary">
   <span routerLink="/" routerLinkActive="active" style="cursor:pointer">Wine Map</span>
+  <div class="layoutMenu" *ngIf="route != '/search'">
+    <span>
+    <md-icon (click)="showSearch()">search</md-icon>
+  </span>
+  </div>
 </md-toolbar>
+<div class="row" *ngIf="!hideSearch">
+  <div class="col-md-offset-3 col-md-6 col-xs-offset-1 col-xs-10 secondarySearch">
+    <div class="row">
+      <md-input-container>
+        <input mdInput placeholder="Cuisine to pair with Wine" [(ngModel)]="searchTerm" (keyup.enter)="wineSearch()">
+      </md-input-container>
+      <a href="/results/1">
+        <md-icon class="searchIcon">search</md-icon>
+      </a>
+    </div>
+  </div>

@@ -1,3 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+.searchDesc {
+    width: 94%;
+}
+md-input-container {
+    width: 90%;
+    font-size: 25px;
+}
+.searchIcon {
+    font-size: 40px;
+    color: #673ab7;
+}
+md-icon {
+    vertical-align: middle !important;
+    padding-bottom: 20px;
+}
+@media screen and (max-width: 960px) {
+    md-input-container {
+    width: 80%;
+}
+.searchDesc {
+    width: 100%;
+}
+}

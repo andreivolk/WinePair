@@ -4,7 +4,9 @@
       <md-input-container>
         <input mdInput placeholder="Cuisine to pair with Wine" [(ngModel)]="searchTerm" (keyup.enter)="wineSearch()">
       </md-input-container>
-      <a href="/results/1" class="searchIcon"><i class="material-icons">search</i></a>
+      <a href="/results/1" class="searchIcon">
+        <md-icon>search</md-icon>
+      </a>
     </div>
     <div class="row searchDesc">
       <md-card>
