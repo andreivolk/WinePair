@@ -1,6 +1,9 @@
 .mainSearch {
     margin-top: 50px;
 }
+.searchDesc {
+    width: 94%;
+}
 md-input-container {
     width: 90%;
     font-size: 25px;
@@ -15,5 +18,8 @@ i {
 @media screen and (max-width: 960px) {
     md-input-container {
     width: 80%;
+}
+.searchDesc {
+    width: 100%;
 }
 }
