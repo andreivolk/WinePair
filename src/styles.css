@@ -15,14 +15,14 @@ md-input-container {
     color: #673ab7;
 }
 md-icon {
-    vertical-align: middle !important;
-    padding-bottom: 20px;
+    vertical-align: middle;
+    margin-bottom: 10px;
 }
 @media screen and (max-width: 960px) {
     md-input-container {
     width: 80%;
-}
-.searchDesc {
+    }
+    .searchDesc {
     width: 100%;
-}
+    }
 }
