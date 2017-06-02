@@ -6,7 +6,7 @@
         <div class="col-md-4 col-xs-4">
           Year : 2016
         </div>
-        <div class="col-md-6 col-xs-6">
+        <div class="col-md-6 col-xs-8">
           Type : Sauvignon Blanc
         </div>
       </div>
@@ -15,11 +15,7 @@
         <div class="col-md-1 col-xs-3">
           Rating :
         </div>
-        <md-icon>star</md-icon>
-        <md-icon>star</md-icon>
-        <md-icon>star</md-icon>
-        <md-icon>star</md-icon>
-        <md-icon>star_half</md-icon>
+        <div class="ratingsDiv" [innerHtml]="rating | starRating"></div>
       </div>
       <!--<h2>Images</h2>-->
       <br>

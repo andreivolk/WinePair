@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WineComponent implements OnInit {
 
+  rating: string = "5";
+
   constructor() { }
 
   ngOnInit() {

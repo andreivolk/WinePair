@@ -14,6 +14,7 @@ import { ResultsComponent } from './results/results.component';
 import { WineComponent } from './wine/wine.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { appRouting } from './app.routes';
+import { StarRatingPipe } from './shared/starRating.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { appRouting } from './app.routes';
     SearchComponent,
     ResultsComponent,
     WineComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    StarRatingPipe
   ],
   imports: [
     BrowserModule,
