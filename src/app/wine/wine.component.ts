@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WineComponent implements OnInit {
 
-  rating: string = "5";
+  rating: string = "3";
 
   constructor() { }
 
