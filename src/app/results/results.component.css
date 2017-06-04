@@ -1,0 +1,35 @@
+.searchString{
+    margin-top: 20px;
+}
+
+.results{
+    margin-top: 20px;
+
+}
+md-card{
+    padding:0px;
+
+}
+
+md-card-title{
+    
+    padding:20px;
+    margin: 0px
+}
+
+md-card-content{
+    padding:20px;
+
+}
+
+mat-icon{
+margin-top: 10px;
+
+}
+
+@media screen and (max-device-width : 400px)
+{
+    .title{
+        font-size: 18px;
+    }
+}

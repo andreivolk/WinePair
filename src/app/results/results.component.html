@@ -1,1 +1,43 @@
-results here
+
+
+<div class="container">
+    <div class="row">
+        <!-- the X results in Y --> 
+        <div class="searchString col-md-offset-2 col-md-8">
+            <md-card> 
+                <md-card-content>       
+                    <b>X Results for Search_Str</b>
+                </md-card-content>
+            </md-card>
+        </div>
+        <!-- the results -->
+        <div class="results col-md-offset-2 col-md-8 col-xs-12">
+            <md-card> 
+                <md-card-title> 
+                    <div class="title">{{wineList.Name}} </div>
+                </md-card-title>
+                
+                
+                <md-card-content>
+                    <div class="row">
+                        <div class="col-md-3  col-xs-offset-2 col-xs-8">
+                            <img src="http://cache.wine.com/labels/147844m.jpg" alt="Label" style="width:120px;height:120px;">
+                        </div>
+                        <div class="col-md-9 col-xs-12">
+                            <p>Year: {{wineList.Vintage}} <br/></p>
+                            <p>Type: {{wineList.Varietal["Name"]}} <br/></p>
+                            <div class="row">
+                                <div class="col-md-2 col-xs-3">
+                                    <p>Rating:</p>
+                                </div>
+                                <div class="ratingsDiv" [innerHtml]="rating | starRating"></div>
+                            </div>
+                            <p>Vineyard: {{wineList.Vineyard["Name"]}}</p>
+                        </div>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </div>
+    </div>
+</div>
+
