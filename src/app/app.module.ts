@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule, Jsonp, Response } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,6 +15,8 @@ import { WineComponent } from './wine/wine.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { appRouting } from './app.routes';
 import { StarRatingPipe } from './shared/starRating.pipe';
+import { WineapiService } from './search/wineapi.service';
+import { IplookupService } from './search/iplookup.service';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,10 @@ import { StarRatingPipe } from './shared/starRating.pipe';
     HttpModule,
     appRouting,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    JsonpModule
   ],
-  providers: [],
+  providers: [WineapiService, IplookupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
