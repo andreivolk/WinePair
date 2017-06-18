@@ -15,7 +15,7 @@ import { WineComponent } from './wine/wine.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { appRouting } from './app.routes';
 import { StarRatingPipe } from './shared/starRating.pipe';
-import { WineapiService } from './search/wineapi.service';
+import { WineapiService } from './shared/wineapi.service';
 import { IplookupService } from './search/iplookup.service';
 
 @NgModule({

@@ -7,7 +7,7 @@ export class IplookupService {
   constructor(private jsonp: Jsonp) { }
 
   public getIp() {
-    return this.jsonp.get('//api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK').map(response => this.toInt(response["_body"]["ip"]));
+    return this.jsonp.get('https://api.ipify.org/?format=jsonp&callback=JSONP_CALLBACK').map(response => this.toInt(response["_body"]["ip"]));
   }
 
   //Convert ip to integer for lookup
