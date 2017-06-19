@@ -1,43 +1,42 @@
-
-
 <div class="container">
     <div class="row">
-        <!-- the X results in Y --> 
+        <!-- the X results in Y -->
         <div class="searchString col-md-offset-2 col-md-8">
-            <md-card> 
-                <md-card-content>       
+            <md-card>
+                <md-card-content>
                     <b>X Results for Search_Str</b>
                 </md-card-content>
             </md-card>
         </div>
         <!-- the results -->
         <div class="results col-md-offset-2 col-md-8 col-xs-12">
-            <md-card> 
-                <md-card-title> 
-                    <div class="title">{{wineList.Name}} </div>
+
+            <md-card *ngFor="let wine of wineList?.wine">
+                <md-card-title>
+                    <div class="title">{{wine?.name}} </div>
                 </md-card-title>
-                
-                
+
+
                 <md-card-content>
                     <div class="row">
                         <div class="col-md-3  col-xs-offset-2 col-xs-8">
-                            <img src="http://cache.wine.com/labels/147844m.jpg" alt="Label" style="width:120px;height:120px;">
+                            <img src="{{wine?.thumbUrl}}" alt="Label" style="width:120px;height:120px;">
                         </div>
                         <div class="col-md-9 col-xs-12">
-                            <p>Year: {{wineList.Vintage}} <br/></p>
-                            <p>Type: {{wineList.Varietal["Name"]}} <br/></p>
+                            <p>Year: {{wine?.year}} <br/></p>
+                            <p>Type: {{wine?.type}} <br/></p>
                             <div class="row">
                                 <div class="col-md-2 col-xs-3">
                                     <p>Rating:</p>
                                 </div>
-                                <div class="ratingsDiv" [innerHtml]="rating | starRating"></div>
+                                <div class="ratingsDiv" [innerHtml]="wine?.rating | starRating"></div>
                             </div>
-                            <p>Vineyard: {{wineList.Vineyard["Name"]}}</p>
+                            <p>Vineyard: {{wine?.vineyard}}</p>
                         </div>
                     </div>
                 </md-card-content>
             </md-card>
+            <p (click)="testWine()">test</p>
         </div>
     </div>
 </div>
-
