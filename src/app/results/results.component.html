@@ -1,42 +1,70 @@
 <div class="container">
     <div class="row">
         <!-- the X results in Y -->
-        <div class="searchString col-md-offset-2 col-md-8">
-            <md-card>
-                <md-card-content>
-                    <b>X Results for Search_Str</b>
-                </md-card-content>
-            </md-card>
+        <div class="row" *ngIf="wineList?.wine.length > 0">
+            <div class="searchString col-md-offset-2 col-md-8 col-xs-12">
+                <div class="row">
+                    <md-card>
+                        <md-card-title>
+                            <b>{{wineList?.wine.length}} Results for {{wineList?.suggestions[0]}}</b>
+                        </md-card-title>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+        <!-- suggestions -->
+        <div class="row" *ngIf="wineList?.suggestions.length > 1">
+            <div class="searchString col-md-offset-2 col-md-8">
+                <h3>Did you mean?</h3>
+                <md-chip-list>
+                    <md-chip color="primary" selected="true" *ngFor="let suggestion of wineList?.suggestions" (click)="fetchSuggestion(suggestion)">{{suggestion}}</md-chip>
+                </md-chip-list>
+            </div>
         </div>
         <!-- the results -->
-        <div class="results col-md-offset-2 col-md-8 col-xs-12">
+        <div class="row">
+            <div class="results col-md-offset-2 col-md-8 col-xs-12">
+                <div class="row" *ngFor="let wine of wineList?.wine | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <md-card>
+                        <md-card-title>
+                            <div class="title wineLink" (click)="getWine(wine.wineID)">{{wine?.name}} </div>
+                        </md-card-title>
 
-            <md-card *ngFor="let wine of wineList?.wine">
-                <md-card-title>
-                    <div class="title">{{wine?.name}} </div>
-                </md-card-title>
 
-
-                <md-card-content>
-                    <div class="row">
-                        <div class="col-md-3  col-xs-offset-2 col-xs-8">
-                            <img src="{{wine?.thumbUrl}}" alt="Label" style="width:120px;height:120px;">
-                        </div>
-                        <div class="col-md-9 col-xs-12">
-                            <p>Year: {{wine?.year}} <br/></p>
-                            <p>Type: {{wine?.type}} <br/></p>
-                            <div class="row">
-                                <div class="col-md-2 col-xs-3">
-                                    <p>Rating:</p>
+                        <md-card-content>
+                            <div class="row  resultPreview">
+                                <div class="row">
+                                    <div class="col-md-3 col-xs-12">
+                                        <img src="{{wine?.thumbUrl}}" alt="Label" style="width:120px;height:120px;">
+                                    </div>
                                 </div>
-                                <div class="ratingsDiv" [innerHtml]="wine?.rating | starRating"></div>
+                                <div class="row">
+                                    <div class="col-md-9 col-xs-12">
+                                        <p>Year: {{wine?.year}} <br/></p>
+                                        <p>Type: {{wine?.type}} <br/></p>
+                                        <div class="row">
+                                            <div class="col-md-1 col-xs-2">
+                                                <p>Rating:</p>
+                                            </div>
+                                            <div class="col-md-4 col-xs-6">
+                                                <div class="ratingsDiv" [innerHtml]="wine?.rating | starRating"></div>
+                                            </div>
+                                        </div>
+                                        <p>Vineyard: {{wine?.vineyard}}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p>Vineyard: {{wine?.vineyard}}</p>
-                        </div>
-                    </div>
-                </md-card-content>
-            </md-card>
-            <p (click)="testWine()">test</p>
+                        </md-card-content>
+                    </md-card>
+                    <br>
+                </div>
+                <p (click)="testWine()">test</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="pagination-wrapper col-md-8 col-xs-12">
+                <pagination-controls class="wine-pagination" (pageChange)="p = $event" autoHide="true" maxSize="5"></pagination-controls>
+            </div>
         </div>
     </div>
 </div>

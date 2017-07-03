@@ -1,13 +1,13 @@
 <div class="container wineDetail">
-  <div class="row">
+  <div class="row" *ngIf="wineDetail">
     <md-card>
-      <h1>Station road Sauvignon Blanc</h1>
+      <h1>{{wineDetail?.Name}}</h1>
       <div class="row">
         <div class="col-md-4 col-xs-4">
-          Year : 2016
+          Year : {{wineDetail?.Vintage}}
         </div>
         <div class="col-md-6 col-xs-8">
-          Type : Sauvignon Blanc
+          Type : {{wineDetail?.Varietal.Name}}
         </div>
       </div>
       <br>
@@ -15,14 +15,14 @@
         <div class="col-md-1 col-xs-3">
           Rating :
         </div>
-        <div class="ratingsDiv" [innerHtml]="rating | starRating"></div>
+        <div class="ratingsDiv" [innerHtml]="wineDetail?.Ratings.HighestScore.toString() | starRating"></div>
       </div>
       <!--<h2>Images</h2>-->
       <br>
       <br>
       <div class="row imageRow">
         <div class="col-md-3 col-xs-12">
-          <img class="wineImg" md-card-image src="../../assets/wine_example.png">
+          <img class="wineImg" md-card-image src="{{wineDetail?.Labels[1].Url}}">
         </div>
       </div>
       <div class="row">
@@ -68,10 +68,12 @@
       <div class="row">
         <div class="col-md-12 col-xs-12">
           <h3>Winyard information</h3>
-          <p>Grapes for days, so much sun it's unbelivabubble. You're gonna love it. Believe me.
+          <p>{{wineDetail?.Vineyard.Name}}</p>
+          <a href="{{wineDetail?.Vineyard.Url}}">Vineyard Info</a>
         </div>
       </div>
     </md-card>
     <br>
+    <p (click)="testWine()">test</p>
   </div>
 </div>

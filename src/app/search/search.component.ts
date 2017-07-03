@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, Routes, ActivatedRoute, Router } from '@angular/router';
-import { IplookupService } from './iplookup.service';
+// import { IplookupService } from './iplookup.service';
 
 @Component({
   selector: 'app-search',
@@ -9,19 +9,18 @@ import { IplookupService } from './iplookup.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private router: Router, private ipLookup: IplookupService) { }
+  constructor(private router: Router) { }
 
   public searchTerm: string;
-  public ipInteger: number;
 
   wineSearch() {
-    this.router.navigate(['/results', this.searchTerm, this.ipInteger]);
+    this.router.navigate(['/results', this.searchTerm]);
     // this.wineApi.getWine(this.searchTerm, this.ipInteger).subscribe(res => console.log(res.json()));
   }
 
   ngOnInit() {
-    this.ipLookup.getIp()
-      .subscribe(ipInt => this.ipInteger = ipInt);
+    // this.ipLookup.getIp()
+    //   .subscribe(ipInt => this.ipInteger = ipInt);
   }
 
 

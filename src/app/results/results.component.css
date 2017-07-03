@@ -6,6 +6,12 @@
     margin-top: 20px;
 
 }
+.ratingsDiv{
+    margin-top: 10px;
+}
+.resultPreview {
+    margin-left: 10px;
+}
 md-card{
     padding:0px;
 
@@ -33,3 +39,23 @@ margin-top: 10px;
         font-size: 18px;
     }
 }
+@media screen and (max-device-width : 768px)
+{
+    .pagination-wrapper {
+        margin-left: -30px;
+    }
+}
+@media screen and (min-device-width : 768px)
+{
+    .pagination-wrapper {
+        margin-left: 30%;
+    }
+}
+
+.wine-pagination /deep/ .ngx-pagination .current {
+    background: #5f192c;
+  }
+md-chip, .wineLink {
+    cursor: pointer;
+}
+

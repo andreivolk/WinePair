@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule, Jsonp, Response } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -37,7 +38,8 @@ import { IplookupService } from './search/iplookup.service';
     appRouting,
     BrowserAnimationsModule,
     MaterialModule,
-    JsonpModule
+    JsonpModule,
+    NgxPaginationModule
   ],
   providers: [WineapiService, IplookupService],
   bootstrap: [AppComponent]

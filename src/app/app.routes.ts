@@ -9,7 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
     { path: 'about', component: AboutComponent },
-    { path: 'results/:search/:ip', component: ResultsComponent },
+    { path: 'results/:search', component: ResultsComponent },
     { path: 'wine/:id', component: WineComponent },
     { path: 'search', component: SearchComponent },
     { path: '', redirectTo: '/search', pathMatch: 'full' },
