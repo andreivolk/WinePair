@@ -10,10 +10,10 @@ export class WineapiService {
   constructor(private http: Http) { }
 
   public getWine(searchTerm) {
-    return this.http.get(environment.wineapi + 'search/' + searchTerm);
+    return this.http.get(environment.wineapi + 'search/search=' + searchTerm);
   }
   public getWineByID(wineID) {
-    return this.http.get(environment.wineapi + 'search/' + wineID);
+    return this.http.get(environment.wineapi + 'search/wineID=' + wineID);
   }
 
 }

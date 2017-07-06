@@ -1,4 +1,5 @@
 <div class="container">
+    <div class="loader" *ngIf="wineList?.wine.length <= 0"></div>
     <div class="row">
         <!-- the X results in Y -->
         <div class="row" *ngIf="wineList?.wine.length > 0">

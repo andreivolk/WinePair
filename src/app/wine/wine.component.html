@@ -1,4 +1,5 @@
 <div class="container wineDetail">
+  <div class="loader" *ngIf="!wineDetail"></div>
   <div class="row" *ngIf="wineDetail">
     <md-card>
       <h1>{{wineDetail?.Name}}</h1>
