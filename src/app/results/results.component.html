@@ -34,7 +34,7 @@
                 <div class="row" *ngFor="let wine of wineList?.Wine | paginate: { itemsPerPage: 10, currentPage: p }">
                     <md-card>
                         <md-card-title>
-                            <div class="title wineLink" (click)="getWine(wine.wineID)">{{wine?.Name}} </div>
+                            <div class="title wineLink" (click)="getWine(wine.WineID)">{{wine?.Name}} </div>
                         </md-card-title>
 
 
