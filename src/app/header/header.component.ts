@@ -11,16 +11,22 @@ export class HeaderComponent implements OnInit {
 
   public route: string;
 
-  constructor(location: Location, router: Router) {
+  constructor(private location: Location, private router: Router) {
     router.events.subscribe((val) => {
       this.route = location.path();
     });
   }
 
   public hideSearch: boolean = true;
+  public searchTerm: string;
 
   showSearch() {
     this.hideSearch = (this.hideSearch == true ? false : true);
+  }
+
+  wineSearch() {
+    this.showSearch();
+    this.router.navigate(['/results', this.searchTerm]);
   }
 
   ngOnInit() {
