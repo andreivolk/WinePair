@@ -1,77 +1,76 @@
 <div class="container">
     <div class="loader" *ngIf="wineList?.Wine.length <= 0"></div>
+    <!-- the X results in Y -->
+    <div class="row" *ngIf="wineList?.Wine.length > 0">
+        <div class="searchString col-md-offset-2 col-md-8 col-xs-12">
+            <div class="row">
+                <md-card>
+                    <md-card-title>
+                        <b>{{wineList?.Wine.length}} Results for {{wineList?.Suggestions[0]}}</b>
+                    </md-card-title>
+                </md-card>
+            </div>
+        </div>
+    </div>
+    <!-- Wine.com credit -->
     <div class="row">
-        <!-- the X results in Y -->
-        <div class="row" *ngIf="wineList?.Wine.length > 0">
-            <div class="searchString col-md-offset-2 col-md-8 col-xs-12">
-                <div class="row">
-                    <md-card>
-                        <md-card-title>
-                            <b>{{wineList?.Wine.length}} Results for {{wineList?.Suggestions[0]}}</b>
-                        </md-card-title>
-                    </md-card>
-                </div>
-            </div>
+        <div class="col-md-offset-4 col-xs-offset-1">
+            <p>Wine details provided by <a href="http://www.wine.com/" title="Wine.com the destination for Wine and Wine Gifts"><img src="http://cache.wine.com/images/logos/80x20_winecom_logo.png" alt="Wine.com the destination for Wine and Wine Gifts" /></a></p>
         </div>
-        <!-- Wine.com credit -->
-        <div class="row">
-            <div class="col-md-offset-4 col-xs-offset-1">
-                <p>Wine details provided by <a href="http://www.wine.com/" title="Wine.com the destination for Wine and Wine Gifts"><img src="http://cache.wine.com/images/logos/80x20_winecom_logo.png" alt="Wine.com the destination for Wine and Wine Gifts" /></a></p>
-            </div>
+    </div>
+    <!-- suggestions -->
+    <div class="row" *ngIf="wineList?.Suggestions.length > 1">
+        <div class="searchString col-md-offset-2 col-md-8">
+            <h3>Did you mean?</h3>
+            <md-chip-list>
+                <md-chip color="primary" selected="true" *ngFor="let suggestion of wineList?.Suggestions" (click)="fetchSuggestion(suggestion)">{{suggestion}}</md-chip>
+            </md-chip-list>
         </div>
-        <!-- suggestions -->
-        <div class="row" *ngIf="wineList?.Suggestions.length > 1">
-            <div class="searchString col-md-offset-2 col-md-8">
-                <h3>Did you mean?</h3>
-                <md-chip-list>
-                    <md-chip color="primary" selected="true" *ngFor="let suggestion of wineList?.Suggestions" (click)="fetchSuggestion(suggestion)">{{suggestion}}</md-chip>
-                </md-chip-list>
-            </div>
-        </div>
-        <!-- the results -->
-        <div class="row">
-            <div class="results col-md-offset-2 col-md-8 col-xs-12">
-                <div class="row" *ngFor="let wine of wineList?.Wine | paginate: { itemsPerPage: 10, currentPage: p }">
-                    <md-card>
-                        <md-card-title>
-                            <div class="title wineLink" (click)="getWine(wine.WineID)">{{wine?.Name}} </div>
-                        </md-card-title>
+    </div>
+    <!-- the results -->
+    <div class="row">
+        <div class="results col-md-offset-2 col-md-8 col-xs-12">
+            <div class="row" *ngFor="let wine of wineList?.Wine | paginate: { itemsPerPage: 10, currentPage: p }">
+                <md-card>
+                    <md-card-title>
+                        <div class="title wineLink" (click)="getWine(wine.WineID)">{{wine?.Name}} </div>
+                    </md-card-title>
 
 
-                        <md-card-content>
-                            <div class="row  resultPreview">
-                                <div class="row">
-                                    <div class="col-md-3 col-xs-12">
-                                        <img src="{{wine?.ThumbUrl}}" alt="Label" style="width:120px;height:120px;">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-9 col-xs-12">
-                                        <p>Year: {{wine?.Year}} <br/></p>
-                                        <p>Type: {{wine?.Type}} <br/></p>
-                                        <div class="row">
-                                            <div class="col-md-1 col-xs-2">
-                                                <p>Rating:</p>
-                                            </div>
-                                            <div class="col-md-4 col-xs-6">
-                                                <div class="ratingsDiv" [innerHtml]="wine?.Rating | starRating"></div>
-                                            </div>
-                                        </div>
-                                        <p>Vineyard: {{wine?.Vineyard}}</p>
-                                    </div>
+                    <md-card-content>
+                        <div class="row  resultPreview">
+                            <div class="row">
+                                <div class="col-md-3 col-xs-12">
+                                    <img src="{{wine?.ThumbUrl}}" alt="Label" style="width:120px;height:120px;">
                                 </div>
                             </div>
-                        </md-card-content>
-                    </md-card>
-                    <br>
-                </div>
-                <p (click)="testWine()">test</p>
+                            <div class="row">
+                                <div class="col-md-9 col-xs-12">
+                                    <p>Year: {{wine?.Year}} <br/></p>
+                                    <p>Type: {{wine?.Type}} <br/></p>
+                                    <div class="row">
+                                        <div class="col-md-1 col-xs-2">
+                                            <p>Rating:</p>
+                                        </div>
+                                        <div class="col-md-4 col-xs-6">
+                                            <div class="ratingsDiv" [innerHtml]="wine?.Rating | starRating"></div>
+                                        </div>
+                                    </div>
+                                    <p>Vineyard: {{wine?.Vineyard}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </md-card-content>
+                </md-card>
+                <br>
             </div>
+            <p (click)="testWine()">test</p>
         </div>
-        <div class="row">
-            <div class="pagination-wrapper col-md-8 col-xs-12">
-                <pagination-controls class="wine-pagination" (pageChange)="p = $event" autoHide="true" maxSize="5"></pagination-controls>
-            </div>
+    </div>
+    <div class="row">
+        <!-- <div class="pagination-wrapper col-md-8 col-xs-12"> -->
+        <div class="pagination-wrapper">
+            <pagination-controls class="wine-pagination" (pageChange)="p = $event" autoHide="true" maxSize="5"></pagination-controls>
         </div>
     </div>
 </div>
