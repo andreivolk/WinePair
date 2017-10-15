@@ -5,6 +5,7 @@ import { HttpModule, JsonpModule, Jsonp, Response } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {ScrollToModule} from 'ng2-scroll-to';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -39,7 +40,8 @@ import { IplookupService } from './search/iplookup.service';
     BrowserAnimationsModule,
     MaterialModule,
     JsonpModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+	ScrollToModule.forRoot()
   ],
   providers: [WineapiService, IplookupService],
   bootstrap: [AppComponent]

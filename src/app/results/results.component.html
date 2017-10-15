@@ -29,7 +29,7 @@
     </div>
     <!-- the results -->
     <div class="row">
-        <div class="results col-md-offset-2 col-md-8 col-xs-12">
+        <div id="results" class="results col-md-offset-2 col-md-8 col-xs-12">
             <div class="row" *ngFor="let wine of wineList?.Wine | paginate: { itemsPerPage: 10, currentPage: p }">
                 <md-card>
                     <md-card-title>
@@ -69,7 +69,7 @@
     <div class="row">
         <!-- <div class="pagination-wrapper col-md-8 col-xs-12"> -->
         <div class="pagination-wrapper">
-            <pagination-controls class="wine-pagination" (pageChange)="p = $event" autoHide="true" maxSize="5"></pagination-controls>
+            <pagination-controls class="wine-pagination" (pageChange)="p = $event" autoHide="true" maxSize="5" scrollTo scrollTargetSelector="#results"></pagination-controls>
         </div>
     </div>
 </div>
