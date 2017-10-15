@@ -19,9 +19,6 @@ export class ResultsComponent implements OnInit {
       this.wineapi.getWine(params['search'])
         .subscribe((winelist => this.wineList = winelist.json())));
   }
-  public testWine() {
-    console.log(this.wineList);
-  }
   public fetchSuggestion(suggestion) {
     this.wineapi.getWine(suggestion)
       .subscribe((winelist => this.wineList = winelist.json()))
